@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>C:\Users\admincrm\Documents\publish\PagosCred</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="ApplicationInsights.config">
+      <publishTime>10/26/2016 16:16:10</publishTime>
+    </File>
+    <File Include="bin/ApplicationInsights.config">
+      <publishTime>10/26/2016 16:16:10</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.Agent.Intercept.dll">
+      <publishTime>07/12/2015 19:04:38</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.DependencyCollector.dll">
+      <publishTime>10/03/2016 14:26:18</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.PerfCounterCollector.dll">
+      <publishTime>10/03/2016 14:26:26</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.ServerTelemetryChannel.dll">
+      <publishTime>09/03/2016 12:00:14</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.Web.dll">
+      <publishTime>10/03/2016 14:26:26</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.WindowsServer.dll">
+      <publishTime>10/03/2016 14:26:26</publishTime>
+    </File>
+    <File Include="bin/Microsoft.ApplicationInsights.dll">
+      <publishTime>09/03/2016 11:57:34</publishTime>
+    </File>
+    <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
+      <publishTime>06/15/2015 02:06:24</publishTime>
+    </File>
+    <File Include="bin/PagosCred.dll">
+      <publishTime>06/09/2017 17:13:46</publishTime>
+    </File>
+    <File Include="bin/PagosCred.pdb">
+      <publishTime>11/22/2016 12:23:01</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Build.Tasks.CodeAnalysis.dll">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.dll">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.dll">
+      <publishTime>06/18/2015 20:19:44</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.VisualBasic.dll">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CSharp.Core.targets">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.VisualBasic.Core.targets">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Collections.Immutable.dll">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Reflection.Metadata.dll">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe.config">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="Content/bootstrap-theme.css">
+      <publishTime>10/26/2016 16:18:04</publishTime>
+    </File>
+    <File Include="Content/bootstrap-theme.css.map">
+      <publishTime>10/26/2016 16:18:04</publishTime>
+    </File>
+    <File Include="Content/bootstrap-theme.min.css">
+      <publishTime>10/26/2016 16:18:04</publishTime>
+    </File>
+    <File Include="Content/bootstrap-theme.min.css.map">
+      <publishTime>10/26/2016 16:18:04</publishTime>
+    </File>
+    <File Include="Content/bootstrap.css">
+      <publishTime>10/26/2016 16:18:04</publishTime>
+    </File>
+    <File Include="Content/bootstrap.css.map">
+      <publishTime>10/26/2016 16:18:04</publishTime>
+    </File>
+    <File Include="Content/bootstrap.min.css">
+      <publishTime>10/26/2016 16:18:04</publishTime>
+    </File>
+    <File Include="Content/bootstrap.min.css.map">
+      <publishTime>10/26/2016 16:18:04</publishTime>
+    </File>
+    <File Include="Default.aspx">
+      <publishTime>02/21/2017 18:07:36</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.eot">
+      <publishTime>10/26/2016 16:18:04</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.svg">
+      <publishTime>10/26/2016 16:18:04</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.ttf">
+      <publishTime>10/26/2016 16:18:04</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.woff">
+      <publishTime>10/26/2016 16:18:04</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.woff2">
+      <publishTime>10/26/2016 16:18:04</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>11/16/2016 14:06:51</publishTime>
+    </File>
+    <File Include="Images/credijalrecor.PNG">
+      <publishTime>10/26/2016 16:23:18</publishTime>
+    </File>
+    <File Include="Images/Progreso.gif">
+      <publishTime>10/26/2016 16:23:18</publishTime>
+    </File>
+    <File Include="Images/search.png">
+      <publishTime>12/06/2016 13:16:40</publishTime>
+    </File>
+    <File Include="Images/settings.png">
+      <publishTime>10/26/2016 16:23:18</publishTime>
+    </File>
+    <File Include="LogIn.aspx">
+      <publishTime>11/24/2016 10:53:02</publishTime>
+    </File>
+    <File Include="LogOut.aspx">
+      <publishTime>11/16/2016 13:56:47</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>11/24/2016 10:05:57</publishTime>
+    </File>
+    <File Include="scripts/ai.0.22.9-build00167.js">
+      <publishTime>10/26/2016 16:16:10</publishTime>
+    </File>
+    <File Include="scripts/ai.0.22.9-build00167.min.js">
+      <publishTime>10/26/2016 16:16:10</publishTime>
+    </File>
+    <File Include="scripts/bootstrap.js">
+      <publishTime>10/26/2016 16:18:04</publishTime>
+    </File>
+    <File Include="scripts/bootstrap.min.js">
+      <publishTime>10/26/2016 16:18:04</publishTime>
+    </File>
+    <File Include="scripts/jquery-1.9.1.js">
+      <publishTime>10/26/2016 16:18:03</publishTime>
+    </File>
+    <File Include="scripts/jquery-1.9.1.min.js">
+      <publishTime>10/26/2016 16:18:03</publishTime>
+    </File>
+    <File Include="scripts/jquery-1.9.1.min.map">
+      <publishTime>10/26/2016 16:18:03</publishTime>
+    </File>
+    <File Include="Settings.aspx">
+      <publishTime>01/23/2017 17:30:55</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>04/17/2017 18:01:47</publishTime>
+    </File>
+  </ItemGroup>
+</Project>
