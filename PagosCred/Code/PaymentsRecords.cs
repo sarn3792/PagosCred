@@ -61,7 +61,8 @@ namespace PagosCredijal
             {
                 String query = String.Format(@"SELECT PR.User1, PR.User2, PR.User3, PR.User4, PR.User5
                                                 FROM PaymentsRecord PR
-                                                WHERE PR.FKCusId = '{0}'", this.PKCustomer);
+                                                WHERE PR.FKCusId = '{0}'
+                                                ORDER BY PR.FinalDate DESC", this.PKCustomer);
                 DataBaseSettings db = new DataBaseSettings();
                 return db.GetDataTable(query);
             } catch (Exception ex)
@@ -75,7 +76,7 @@ namespace PagosCredijal
             try
             {
                 String query = String.Format(@"INSERT INTO PaymentsRecord (FKUser, FKCusId, FKCallType, PhoneCalled, FkStatusCall, Coments, StartDate) 
-                                               VALUES ({0}, '{1}', {2}, '{3}', {4}, '{5}', '{6}')", fkUser, PKCustomer, fkCallType, phoneCalled, fkStatusCall, coments, startTime);
+                                               VALUES ({0}, '{1}', {2}, '{3}', {4}, '{5}', '{6}')", fkUser, PKCustomer, fkCallType, phoneCalled, fkStatusCall, coments, startTime.ToString("yyyy-MM-dd HH:mm:ss"));
 
                 DataBaseSettings db = new DataBaseSettings();
                 db.ExecuteQuery(query);
@@ -91,7 +92,7 @@ namespace PagosCredijal
             try
             {
                 String query = String.Format(@"INSERT INTO PaymentsRecord (FKUser, FKCusId, FKCallType, PhoneCalled, FkStatusCall, Coments, StartDate, PaymentPromise, MoneyPromise) 
-                                               VALUES ({0}, '{1}', {2}, '{3}', {4}, '{5}', '{6}', '{7}', {8})", fkUser, PKCustomer, fkCallType, phoneCalled, fkStatusCall, coments, startTime, paymentPromise, moneyPromise);
+                                               VALUES ({0}, '{1}', {2}, '{3}', {4}, '{5}', '{6}', '{7}', {8})", fkUser, PKCustomer, fkCallType, phoneCalled, fkStatusCall, coments, startTime.ToString("yyyy-MM-dd HH:mm:ss"), paymentPromise, moneyPromise);
 
                 DataBaseSettings db = new DataBaseSettings();
                 db.ExecuteQuery(query);

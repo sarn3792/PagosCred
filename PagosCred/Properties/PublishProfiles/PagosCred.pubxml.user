@@ -40,7 +40,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/15/2015 02:06:24</publishTime>
     </File>
     <File Include="bin/PagosCred.dll">
-      <publishTime>06/09/2017 17:13:46</publishTime>
+      <publishTime>10/30/2017 17:01:32</publishTime>
     </File>
     <File Include="bin/PagosCred.pdb">
       <publishTime>11/22/2016 12:23:01</publishTime>
