@@ -48,9 +48,9 @@ namespace PagosCredijal
                 PaymentsSL payments = new PaymentsSL();
                 Session["Information"] = payments.GetFirstPaymentByUser(Session["IDUser"].ToString());
                 Session["StartTime"] = DateTime.Now;
-                
+
                 DataTable data = Session["Information"] as DataTable;
-                if(data.Rows.Count > 0)
+                if (data.Rows.Count > 0)
                 {
                     payments.CustomerID = data.Rows[0]["PKCliente"].ToString().Trim();
                     payments.SetPaymentBusy();
@@ -107,7 +107,8 @@ namespace PagosCredijal
                 DateTime date = DateTime.ParseExact(DataPickerB.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture);
                 Balance bl = (new PaymentsSL(txtNumCliente.Text.Trim())).GetBalances(date);
                 FillBalances(bl);
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -283,10 +284,14 @@ namespace PagosCredijal
                 else
                 {
                     pnlMainScreen.Enabled = true;
+                    DisableFieldsManual(false);
+                    //txtNombre.Enabled = true;
                     txtNombre.Focus();
+                    //txtNumCliente.Enabled = true;
                     btnSearchByName.Visible = true;
                 }
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -314,7 +319,8 @@ namespace PagosCredijal
                     ClearAllData();
                 }
 
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -327,7 +333,8 @@ namespace PagosCredijal
                 PaymentsSL payments = new PaymentsSL(txtNumCliente.Text.Trim());
                 payments.SetPaymentFree();
                 Response.Redirect("Settings.aspx");
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -345,20 +352,34 @@ namespace PagosCredijal
 
         private void SetDataToRecordGrid()
         {
-            DataTable data = Session["information"] as DataTable;
-            String FKCliente = data.Rows.Count > 0 ? data.Rows[0]["PKCliente"].ToString().Trim() : String.Empty;
-            PaymentsRecords bitacora = new PaymentsRecords(FKCliente);
-            gvReport.DataSource = bitacora.Get();
-            gvReport.DataBind();
+            try
+            {
+                DataTable data = Session["information"] as DataTable;
+                String FKCliente = data.Rows.Count > 0 ? data.Rows[0]["PKCliente"].ToString().Trim() : String.Empty;
+                PaymentsRecords bitacora = new PaymentsRecords(FKCliente);
+                gvReport.DataSource = bitacora.Get();
+                gvReport.DataBind();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         private void SetDataToRecord2Grid()
         {
-            DataTable data = Session["information"] as DataTable;
-            String FKCliente = data.Rows.Count > 0 ? data.Rows[0]["PKCliente"].ToString().Trim() : String.Empty;
-            PaymentsRecords bitacora = new PaymentsRecords(FKCliente);
-            gvReport2.DataSource = bitacora.GetReport2();
-            gvReport2.DataBind();
+            try
+            {
+                DataTable data = Session["information"] as DataTable;
+                String FKCliente = data.Rows.Count > 0 ? data.Rows[0]["PKCliente"].ToString().Trim() : String.Empty;
+                PaymentsRecords bitacora = new PaymentsRecords(FKCliente);
+                gvReport2.DataSource = bitacora.GetReport2();
+                gvReport2.DataBind();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
         #endregion
 
@@ -482,7 +503,7 @@ namespace PagosCredijal
 
                 //contracts
                 DataTable aux = new PaymentsSL().GetContracts(txtNumCliente.Text);
-                if(aux.Rows.Count > 0)
+                if (aux.Rows.Count > 0)
                 {
                     txtNumContrato1.Text = aux.Rows[0]["Contrato"].ToString();
                     txtNumContrato2.Text = aux.Rows.Count > 1 ? aux.Rows[1]["Contrato"].ToString() : String.Empty;
@@ -498,7 +519,7 @@ namespace PagosCredijal
                 //thrid tab
                 txtAvalNombre.Text = information.Rows[0]["NombreAval"].ToString().Trim();
                 txtAvalNumCliente.Text = information.Rows[0]["PKCliente"].ToString().Trim();
-                if(txtAvalNombre.Text == String.Empty)
+                if (txtAvalNombre.Text == String.Empty)
                 {
                     btnAddDomicilioAval.Enabled = false;
                     btnAddTelefonoAval.Enabled = false;
@@ -514,6 +535,40 @@ namespace PagosCredijal
 
         }
 
+        private void DisableFieldsManual(bool flag)
+        {
+            txtNumRefPago1.Enabled = flag;
+            txtSerieDoctoCurso.Enabled = flag;
+            txtTipoCredito.Enabled = flag;
+            txtMovil.Enabled = flag;
+            txtCasa.Enabled = flag;
+            txtEmpleo.Enabled = flag;
+            txtOtros1.Enabled = flag;
+            txtOtros2.Enabled = flag;
+            txtCorreoElectronico.Enabled = flag;
+            txtUnidadFinanciada.Enabled = flag;
+            txtHistoricoDeMora.Enabled = flag;
+            txtNumContrato1.Enabled = flag;
+            txtNumContrato2.Enabled = flag;
+            txtNumContrato3.Enabled = flag;
+            txtFechaMaxVencimiento.Enabled = flag;
+            txtMontoFinanciado.Enabled = flag;
+            txtMontoActual.Enabled = flag;
+            txtDiasDcoMaximoVencidos.Enabled = flag;
+            txtFechaUltimaPago.Enabled = flag;
+            txtMontoUltimoPago.Enabled = flag;
+            txtDoctosVencidos.Enabled = flag;
+            txtVigente.Enabled = flag;
+            txt30Dias.Enabled = flag;
+            txt60Dias.Enabled = flag;
+            txt90Dias.Enabled = flag;
+            txtMas90Dias.Enabled = flag;
+            txtInteresMoratorio.Enabled = flag;
+            txtSaldoVencido.Enabled = flag;
+            txtSaldoCartera.Enabled = flag;
+            txtInteresNoDevengado.Enabled = flag;
+            txtSaldoParaLiquidar.Enabled = flag;
+        }
         private void ClearAllData()
         {
             txtNombre.Text = String.Empty;
@@ -621,7 +676,7 @@ namespace PagosCredijal
             DataPickerB.Text = String.Empty;
 
         }
-            
+
         private void DisableFields()
         {
             pnlMainScreen.Enabled = false;
@@ -670,7 +725,8 @@ namespace PagosCredijal
                         customers.Add(row["RazonSocial"].ToString().Trim());
                     }
                 }
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -678,5 +734,31 @@ namespace PagosCredijal
             return customers;
         }
         #endregion
+
+        protected void gvReport_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            try
+            {
+                gvReport.PageIndex = e.NewPageIndex;
+                SetDataToRecordGrid();
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('Error: " + ex.Message + "');</script>");
+            }
+        }
+
+        protected void gvReport2_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            try
+            {
+                gvReport2.PageIndex = e.NewPageIndex;
+                SetDataToRecord2Grid();
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('Error: " + ex.Message + "');</script>");
+            }
+        }
     }
 }

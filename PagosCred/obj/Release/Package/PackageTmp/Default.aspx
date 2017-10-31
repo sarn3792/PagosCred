@@ -73,6 +73,11 @@
             line-height: 1.5 !important;
             border-radius: 3px !important;
         }
+
+        .gvwCasesPager a, .gvwCasesPager span {
+            margin-left: 10px;
+            margin-right: 10px;
+        }
     </style>
     <script>
         $(function () {
@@ -1004,7 +1009,7 @@
                                             <!--grid -->
                                             <div class="col-sm-12">
                                                 <div style="overflow-x: auto; width: 100%">
-                                                    <asp:GridView ID="gvReport" runat="server" Width="100%" ViewStateMode="Enabled" CssClass="table table-hover table-striped" GridLines="None" AutoGenerateColumns="false">
+                                                    <asp:GridView ID="gvReport" runat="server" Width="100%" ViewStateMode="Enabled" CssClass="table table-hover table-striped gvwCasesPager" GridLines="None" AutoGenerateColumns="false" AllowPaging="true" OnPageIndexChanging="gvReport_PageIndexChanging" PageSize="10">
                                                         <Columns>
                                                             <asp:BoundField DataField="Gestor" HeaderText="Gestor" ItemStyle-Width="15%" />
                                                             <asp:BoundField DataField="Fecha y hora de gestión" HeaderText="Fecha y hora de gestión" ItemStyle-Width="10%" />
@@ -1020,7 +1025,7 @@
                                             </div>
                                             <div class="col-sm-12">
                                                 <div style="overflow-x: auto; width: 100%">
-                                                    <asp:GridView ID="gvReport2" runat="server" Width="100%" ViewStateMode="Enabled" CssClass="table table-hover table-striped" GridLines="None" AutoGenerateColumns="false">
+                                                    <asp:GridView ID="gvReport2" runat="server" Width="100%" ViewStateMode="Enabled" CssClass="table table-hover table-striped gvwCasesPager" GridLines="None" AutoGenerateColumns="false" AllowPaging="true" OnPageIndexChanging="gvReport2_PageIndexChanging" PageSize="10">
                                                         <Columns>
                                                             <asp:BoundField DataField="User1" HeaderText="User1" ItemStyle-Width="20%" />
                                                             <asp:BoundField DataField="User2" HeaderText="User2" ItemStyle-Width="20%" />

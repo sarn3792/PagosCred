@@ -37,7 +37,7 @@ namespace PagosCredijal
             DataTable data = new DataTable();
             try
             {
-                String query = String.Format(@"SELECT TOP 10 USR.Name AS 'Gestor', PR.FinalDate AS 'Fecha y hora de gestión', CT.CallTypeName AS 'Tipo de llamada', PR.PhoneCalleD AS 'Teléfono marcado', ST.StatusCallAbbreviation AS 'Estatus', ST.StatusCallName AS 'Descripción estatus', PR.Coments AS 'Comentario'
+                String query = String.Format(@"SELECT USR.Name AS 'Gestor', PR.FinalDate AS 'Fecha y hora de gestión', CT.CallTypeName AS 'Tipo de llamada', PR.PhoneCalleD AS 'Teléfono marcado', ST.StatusCallAbbreviation AS 'Estatus', ST.StatusCallName AS 'Descripción estatus', PR.Coments AS 'Comentario'
                                               , PR.PaymentPromise AS 'Fecha promesa de pago', PR.MoneyPromise AS 'Cantidad promesa de pago'
                                               FROM PaymentsRecord PR
                                               INNER JOIN PaymentsUsers USR ON PR.FKUser = USR.IDUser
@@ -75,8 +75,8 @@ namespace PagosCredijal
         {
             try
             {
-                String query = String.Format(@"INSERT INTO PaymentsRecord (FKUser, FKCusId, FKCallType, PhoneCalled, FkStatusCall, Coments, StartDate) 
-                                               VALUES ({0}, '{1}', {2}, '{3}', {4}, '{5}', '{6}')", fkUser, PKCustomer, fkCallType, phoneCalled, fkStatusCall, coments, startTime.ToString("yyyy-MM-dd HH:mm:ss"));
+                String query = String.Format(@"INSERT INTO PaymentsRecord (FKUser, FKCusId, FKCallType, PhoneCalled, FkStatusCall, Coments, StartDate, FinalDate) 
+                                               VALUES ({0}, '{1}', {2}, '{3}', {4}, '{5}', '{6}', '{7}')", fkUser, PKCustomer, fkCallType, phoneCalled, fkStatusCall, coments, startTime.ToString("yyyy-MM-dd HH:mm:ss"), DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
 
                 DataBaseSettings db = new DataBaseSettings();
                 db.ExecuteQuery(query);
@@ -91,8 +91,8 @@ namespace PagosCredijal
         {
             try
             {
-                String query = String.Format(@"INSERT INTO PaymentsRecord (FKUser, FKCusId, FKCallType, PhoneCalled, FkStatusCall, Coments, StartDate, PaymentPromise, MoneyPromise) 
-                                               VALUES ({0}, '{1}', {2}, '{3}', {4}, '{5}', '{6}', '{7}', {8})", fkUser, PKCustomer, fkCallType, phoneCalled, fkStatusCall, coments, startTime.ToString("yyyy-MM-dd HH:mm:ss"), paymentPromise, moneyPromise);
+                String query = String.Format(@"INSERT INTO PaymentsRecord (FKUser, FKCusId, FKCallType, PhoneCalled, FkStatusCall, Coments, StartDate, PaymentPromise, MoneyPromise, FinalDate) 
+                                               VALUES ({0}, '{1}', {2}, '{3}', {4}, '{5}', '{6}', '{7}', {8}, '{9}')", fkUser, PKCustomer, fkCallType, phoneCalled, fkStatusCall, coments, startTime.ToString("yyyy-MM-dd HH:mm:ss"), paymentPromise, moneyPromise, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
 
                 DataBaseSettings db = new DataBaseSettings();
                 db.ExecuteQuery(query);

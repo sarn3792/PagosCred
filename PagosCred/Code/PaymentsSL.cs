@@ -279,10 +279,10 @@ namespace PagosCredijal
                                                 FROM (SELECT /*CASE WHEN XAM.Interes IS NULL THEN 0 ELSE XAM.Interes END 'Interes', */
 		                                                'DiasVencimiento' = 
 			                                                CASE
-			                                                WHEN  DATEDIFF(DAY, AD.DueDate, '2017 -04-18 00:00:00') > 0 AND DATEDIFF(DAY, AD.DueDate, '2017 -04-18 00:00:00') <=30 THEN '30'
-			                                                WHEN  DATEDIFF(DAY, AD.DueDate, '2017 -04-18 00:00:00') > 30 AND DATEDIFF(DAY, AD.DueDate, '2017 -04-18 00:00:00') <=60 THEN '60'
-			                                                WHEN  DATEDIFF(DAY, AD.DueDate, '2017 -04-18 00:00:00') > 60 AND DATEDIFF(DAY, AD.DueDate, '2017 -04-18 00:00:00') <=90 THEN '90'
-			                                                WHEN  DATEDIFF(DAY, AD.DueDate, '2017 -04-18 00:00:00') > 90 THEN '+90'
+			                                                WHEN  DATEDIFF(DAY, AD.DueDate, '{0}') > 0 AND DATEDIFF(DAY, AD.DueDate, '{0}') <=30 THEN '30'
+			                                                WHEN  DATEDIFF(DAY, AD.DueDate, '{0}') > 30 AND DATEDIFF(DAY, AD.DueDate, '{0}') <=60 THEN '60'
+			                                                WHEN  DATEDIFF(DAY, AD.DueDate, '{0}') > 60 AND DATEDIFF(DAY, AD.DueDate, '{0}') <=90 THEN '90'
+			                                                WHEN  DATEDIFF(DAY, AD.DueDate, '{0}') > 90 THEN '+90'
                                                             ELSE '0'
 			                                                END				
 			                                                , CASE WHEN AD.DocType IN ('IN','DM','FI','NC','AD') THEN 1 ELSE -1 END * AD.DocBal AS DocBal, 
@@ -293,14 +293,14 @@ namespace PagosCredijal
 	                                                RIGHT JOIN ARDOC AD ON XAM.Custid = AD.CustId AND XAM.Contrato = AD.USER5  AND XAM.Num = AD.InstallNbr
 	                                                LEFT JOIN (SELECT SUM(AD.DocBal) 'SaldoVigente', AD.CustId, AD.User5 --Documentos no vencidos
 				                                                FROM ARDoc AD 
-				                                                WHERE AD.CustId = '{1}' AND '2017 -04-18 00:00:00' <= AD.DueDate AND AD.DocBal != 0 AND AD.DocType  IN ('IN','DM','FI','NC','AD')
+				                                                WHERE AD.CustId = '{1}' AND '{0}' <= AD.DueDate AND AD.DocBal != 0 AND AD.DocType  IN ('IN','DM','FI','NC','AD')
 				                                                GROUP BY AD.CustId, AD.User5) SV ON SV.CustId = AD.CustId AND SV.User5 = AD.User5
-	                                                WHERE AD.DocBal != 0 AND /* '2017 -04-18 00:00:00' > AD.DueDate AND */ AD.CustId = '{1}') Z
+	                                                WHERE AD.DocBal != 0 AND /* '{0}' > AD.DueDate AND */ AD.CustId = '{1}') Z
 
                                                 LEFT JOIN (SELECT SUM(xa.Interes+ xa.IvaInteres) as 'Interes', xa.Custid
 															 FROM ARDoc AD
 															 INNER JOIN xAMContAutDet XA ON AD.CustId = XA.Custid AND AD.User5 = XA.Contrato and ad.user6 = xa.anexo AND AD.InstallNbr = XA.Num
-															 WHERE AD.CustId = '{1}' AND '2017 -04-18 00:00:00' <= AD.DueDate AND AD.DocBal > 0 --and Anexo = 'b'
+															 WHERE AD.CustId = '{1}' AND '{0}' <= AD.DueDate AND AD.DocBal > 0 --and Anexo = 'b'
 															 GROUP BY xa.Custid) 
                                                 W ON Z.CustId = W.CustId --ON
                                                 GROUP BY W.Interes, Z.DiasVencimiento, Z.DocBal, Z.SaldoVigente, Z.DueDate, Z.CustId", date.ToString("yyyy -MM-dd HH:mm:ss"), this.CustomerID);
